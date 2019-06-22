@@ -5,17 +5,17 @@ using System.Text;
 
 namespace DataStructures.Linear.LinkedList.Model
 {
-    public class LinkedList<T> : IEnumerable
+    public class LinkedList<T> : IEnumerable<T>
     {
         /// <summary>
         /// First elem int list
         /// </summary>
-        public Item<T> Head { get; private set; }
+        public Node<T> Head { get; private set; }
 
         /// <summary>
         /// Last elem in list
         /// </summary>
-        public Item<T> Tail { get; private set; }
+        public Node<T> Tail { get; private set; }
 
         /// <summary>
         /// Count of elements in list
@@ -33,17 +33,17 @@ namespace DataStructures.Linear.LinkedList.Model
         }
 
         /// <summary>
-        /// Add new item to list
+        /// Add new Node to list
         /// </summary>
         /// <param name="data"></param>
         public void Add(T data)
         {
             if(Count != 0)
             {
-                var item = new Item<T>(data);
+                var Node = new Node<T>(data);
 
-                Tail.Next = item;
-                Tail = item;
+                Tail.Next = Node;
+                Tail = Node;
                 Count++;
             }
             else
@@ -53,7 +53,7 @@ namespace DataStructures.Linear.LinkedList.Model
         }
 
         /// <summary>
-        /// Delete item from list by value
+        /// Delete Node from list by value
         /// </summary>
         /// <param name="data"></param>
         public void Remove(T data)
@@ -86,17 +86,17 @@ namespace DataStructures.Linear.LinkedList.Model
         }
 
         /// <summary>
-        /// Append new item in head of list
+        /// Append new Node in head of list
         /// </summary>
         /// <param name="data"></param>
         public void AppendHead(T data)
         {
-            var item = new Item<T>(data)
+            var Node = new Node<T>(data)
             {
                 Next = Head
             };
 
-            Head = item;
+            Head = Node;
             Count++;
         }
 
@@ -109,9 +109,9 @@ namespace DataStructures.Linear.LinkedList.Model
                 {
                     if (current.Data.Equals(target))
                     {
-                        var item = new Item<T>(data);
-                        item.Next = current.Next;
-                        current.Next = item;
+                        var Node = new Node<T>(data);
+                        Node.Next = current.Next;
+                        current.Next = Node;
                         Count++;
                         return;
                     }
@@ -124,7 +124,7 @@ namespace DataStructures.Linear.LinkedList.Model
         }
 
         /// <summary>
-        /// Delete all items in list
+        /// Delete all Nodes in list
         /// </summary>
         public void Clear()
         {
@@ -135,22 +135,33 @@ namespace DataStructures.Linear.LinkedList.Model
 
         private void SetHeadAndTail(T data)
         {
-            var item = new Item<T>(data);
+            var Node = new Node<T>(data);
 
-            Head = item;
-            Tail = item;
+            Head = Node;
+            Tail = Node;
             Count = 1;
         }
 
-        public IEnumerator GetEnumerator()
+
+        public IEnumerator<T> GetEnumerator()
         {
+            return new LinkedListEnumerator<T>(Head, Tail, Count);
+
+            /*Alternative and more simple way of implement GetEnumerator. 
+            Then isn't neccessary creating class LinkedListEnumerator.
+
             var current = Head;
 
             while (current != null)
             {
                 yield return current.Data;
                 current = current.Next;
-            }
+            }*/
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
         }
 
         public override string ToString()
@@ -158,4 +169,6 @@ namespace DataStructures.Linear.LinkedList.Model
             return "Linked List" + Count + "elements";
         }
     }
+
+    
 }

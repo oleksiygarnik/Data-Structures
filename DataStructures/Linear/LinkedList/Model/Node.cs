@@ -5,7 +5,7 @@ using System.Text;
 
 namespace DataStructures.Linear.LinkedList.Model
 {
-    public class Item<T> 
+    public class Node<T> 
     {
         /// <summary>
         /// Data that stores in cell of linked list
@@ -15,7 +15,7 @@ namespace DataStructures.Linear.LinkedList.Model
         /// <summary>
         /// Next cell of list
         /// </summary>
-        public Item<T> Next { get; set; }
+        public Node<T> Next { get; set; }
 
         public T Data
         {
@@ -29,7 +29,7 @@ namespace DataStructures.Linear.LinkedList.Model
             }
         }
 
-        public Item(T data)
+        public Node(T data)
         {
             Data = data;
         }

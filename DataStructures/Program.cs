@@ -7,12 +7,16 @@ namespace DataStructures
     {
         static void Main(string[] args)
         {
-            var list = new LinkedList<int>();
-            list.Add(1);
-            list.Add(2);
-            list.Add(3);
-            list.Add(4);
-            list.Add(5);
+            Car car = new Car { Name = "Ford", Number = "AA5089BA" };
+            Car car1 = new Car { Name = "Nissan", Number = "AA5070AA" };
+            Car car2 = new Car { Name = "Ford", Number = "AA5089BB" };
+            Car car3 = new Car { Name = "Porshe", Number = "AA5089BB" };
+
+            var list = new LinkedList<Car>();
+            list.Add(car);
+            list.Add(car1);
+            list.Add(car2);
+
 
             foreach (var item in list)
             {
@@ -21,18 +25,12 @@ namespace DataStructures
 
             Console.WriteLine();
 
-            list.Remove(1);
-            list.Remove(3);
-            list.Remove(7);
+            list.Remove(car2);
+            list.InsertAfter(car1, car3);
+            list.AppendHead(car3);
 
-            foreach (var item in list)
-            {
-                Console.Write(item + " ");
-            }
-            
-            Console.WriteLine();
-
-            list.AppendHead(7);
+            //list.Remove(3);
+            //list.Remove(7);
 
             foreach (var item in list)
             {
@@ -41,16 +39,27 @@ namespace DataStructures
 
             Console.WriteLine();
 
-            list.InsertAfter(4, 8);
+            //list.AppendHead(7);
 
-            foreach (var item in list)
-            {
-                Console.Write(item + " ");
-            }
+            //foreach (var item in list)
+            //{
+            //    Console.Write(item + " ");
+            //}
 
-            Console.WriteLine();
+            //Console.WriteLine();
+
+            //list.InsertAfter(4, 8);
+
+            //foreach (var item in list)
+            //{
+            //    Console.Write(item + " ");
+            //}
+
+            //Console.WriteLine();
 
             Console.ReadLine();
+
+
         }
     }
 }
