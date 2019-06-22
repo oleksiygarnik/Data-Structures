@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DataStructures.Linear.LinkedList.Model
+namespace DataStructures.Linear.LinkedList
 {
     public class LinkedList<T> : IEnumerable<T>
     {
