@@ -70,7 +70,7 @@ namespace DataStructures.Linear.LinkedList.Model
                 var current = Head.Next;
                 var previous = Head;
 
-                while(current.Next != null)
+                while(current != null)
                 {
                     if(current.Data.Equals(data))
                     {
@@ -135,10 +135,10 @@ namespace DataStructures.Linear.LinkedList.Model
 
         private void SetHeadAndTail(T data)
         {
-            var Node = new Node<T>(data);
+            var node = new Node<T>(data);
 
-            Head = Node;
-            Tail = Node;
+            Head = node;
+            Tail = node;
             Count = 1;
         }
 
