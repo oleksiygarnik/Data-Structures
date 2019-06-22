@@ -151,6 +151,17 @@ namespace DataStructures.Linear.DoublyLinkedList
             }
         }
 
+        public IEnumerable<T> GetBackEnumerator()
+        {
+            var current = Tail;
+
+            while(current!=null)
+            {
+                yield return current.Data;
+                current = current.Previous;
+            }
+        }
+
         IEnumerator IEnumerable.GetEnumerator()
         {
             return GetEnumerator();

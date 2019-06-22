@@ -8,28 +8,7 @@ namespace DataStructures
     {
         static void Main(string[] args)
         {
-            RingLinkedList<int> list = new RingLinkedList<int>();
-
-            list.Add(1);
-            list.Add(2);
-            list.Add(3);
-            list.Add(4);
-            list.Add(5);
-
-            foreach (var item in list)
-            {
-                Console.Write(item + " ");
-            }
-
-            Console.WriteLine();
-
-            list.Remove(5);
-
-            foreach (var item in list)
-            {
-                Console.Write(item + " ");
-            }
-            //DoublyLinkedList<int> list = new DoublyLinkedList<int>();
+            //RingLinkedList<int> list = new RingLinkedList<int>();
 
             //list.Add(1);
             //list.Add(2);
@@ -37,12 +16,33 @@ namespace DataStructures
             //list.Add(4);
             //list.Add(5);
 
-            //list.AppendHead(0);
+            //foreach (var item in list)
+            //{
+            //    Console.Write(item + " ");
+            //}
+
+            //Console.WriteLine();
+
+            //list.Remove(5);
 
             //foreach (var item in list)
             //{
             //    Console.Write(item + " ");
             //}
+            DoublyLinkedList<int> list = new DoublyLinkedList<int>();
+
+            list.Add(1);
+            list.Add(2);
+            list.Add(3);
+            list.Add(4);
+            list.Add(5);
+
+            list.AppendHead(0);
+
+            foreach (var item in list.GetBackEnumerator())
+            {
+                Console.Write(item + " ");
+            }
 
             //list.Remove(5);
 

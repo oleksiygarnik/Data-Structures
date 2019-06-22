@@ -110,6 +110,17 @@ namespace DataStructures.Linear.RingLinkedList
             }
         }
 
+        public IEnumerable<T> GetBackEnumerator()
+        {
+            var current = Head.Previous;
+
+           for(int i = Count; i > 0; i--)
+            {
+                yield return current.Data;
+                current = current.Previous;
+            }
+        }
+
         IEnumerator IEnumerable.GetEnumerator()
         {
             return GetEnumerator();
