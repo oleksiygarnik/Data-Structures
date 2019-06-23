@@ -1,4 +1,5 @@
 ﻿using DataStructures.Linear.DoublyLinkedList;
+using DataStructures.Linear.Stacks.ArrayStack;
 using DataStructures.Linear.RingLinkedList;
 using System;
 
@@ -8,6 +9,27 @@ namespace DataStructures
     {
         static void Main(string[] args)
         {
+            int[] arr = new int[5];
+
+            Console.WriteLine(arr[3]);
+            ArrayStack<int> stack = new ArrayStack<int>(5);
+
+            stack.Push(1);
+            stack.Push(2);
+
+            var newStack = (ArrayStack<int>)stack.Clone();
+
+            newStack.Push(3);
+            var item1 = newStack.Peek();
+            var item2 = newStack.Pop();
+            var item3 = newStack.Pop();
+            var item4 = newStack.Pop();
+
+            Console.WriteLine(item1);
+            Console.WriteLine(item2);
+            Console.WriteLine(item3);
+            Console.WriteLine(item4);
+        
             //RingLinkedList<int> list = new RingLinkedList<int>();
 
             //list.Add(1);
@@ -29,21 +51,7 @@ namespace DataStructures
             //{
             //    Console.Write(item + " ");
             //}
-            DoublyLinkedList<int> list = new DoublyLinkedList<int>();
-
-            list.Add(1);
-            list.Add(2);
-            list.Add(3);
-            list.Add(4);
-            list.Add(5);
-
-            list.AppendHead(0);
-
-            foreach (var item in list.GetBackEnumerator())
-            {
-                Console.Write(item + " ");
-            }
-
+           
             //list.Remove(5);
 
             //foreach (var item in list)
