@@ -3,6 +3,7 @@ using DataStructures.Linear.Stacks.ArrayStack;
 using DataStructures.Linear.RingLinkedList;
 using System;
 using DataStructures.Linear.Queues;
+using DataStructures.Linear.Deques.LinkedDeque;
 
 namespace DataStructures
 {
@@ -10,18 +11,22 @@ namespace DataStructures
     {
         static void Main(string[] args)
         {
-            var queue = new LinkedQueue<int>();
-            queue.Enqueue(1);
-            queue.Enqueue(2);
-            queue.Enqueue(3);
-            queue.Enqueue(4);
-            queue.Enqueue(5);
+            LinkedDeque<int> deque = new LinkedDeque<int>();
 
-            Console.WriteLine(queue.Dequeue());     
-            Console.WriteLine(queue.Peek());     
-            Console.WriteLine(queue.Dequeue());
+            deque.PushFirst(1);
+            deque.PushFirst(2);
+            deque.PushFirst(3);
+            deque.PushFirst(4);
+            deque.PushFirst(5);
+            deque.PushLast(6);
+            deque.PushLast(7);
+            deque.PushLast(8);
+            deque.PushLast(9);
+            deque.PushLast(10);
 
-            foreach (var item in queue)
+            Console.WriteLine(deque.Last);
+
+            foreach (var item in deque)
             {
                 Console.Write(item + " ");
             }
