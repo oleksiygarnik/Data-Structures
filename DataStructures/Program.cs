@@ -10,7 +10,7 @@ namespace DataStructures
     {
         static void Main(string[] args)
         {
-            var queue = new SimpleQueue<int>();
+            var queue = new LinkedQueue<int>();
             queue.Enqueue(1);
             queue.Enqueue(2);
             queue.Enqueue(3);
@@ -19,8 +19,12 @@ namespace DataStructures
 
             Console.WriteLine(queue.Dequeue());     
             Console.WriteLine(queue.Peek());     
-            Console.WriteLine(queue.Dequeue());     
-            
+            Console.WriteLine(queue.Dequeue());
+
+            foreach (var item in queue)
+            {
+                Console.Write(item + " ");
+            }
             //RingLinkedList<int> list = new RingLinkedList<int>();
 
             //list.Add(1);
@@ -42,7 +46,7 @@ namespace DataStructures
             //{
             //    Console.Write(item + " ");
             //}
-           
+
             //list.Remove(5);
 
             //foreach (var item in list)
