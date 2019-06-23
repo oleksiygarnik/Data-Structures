@@ -2,6 +2,7 @@
 using DataStructures.Linear.Stacks.ArrayStack;
 using DataStructures.Linear.RingLinkedList;
 using System;
+using DataStructures.Linear.Queues;
 
 namespace DataStructures
 {
@@ -9,27 +10,17 @@ namespace DataStructures
     {
         static void Main(string[] args)
         {
-            int[] arr = new int[5];
+            var queue = new SimpleQueue<int>();
+            queue.Enqueue(1);
+            queue.Enqueue(2);
+            queue.Enqueue(3);
+            queue.Enqueue(4);
+            queue.Enqueue(5);
 
-            Console.WriteLine(arr[3]);
-            ArrayStack<int> stack = new ArrayStack<int>(5);
-
-            stack.Push(1);
-            stack.Push(2);
-
-            var newStack = (ArrayStack<int>)stack.Clone();
-
-            newStack.Push(3);
-            var item1 = newStack.Peek();
-            var item2 = newStack.Pop();
-            var item3 = newStack.Pop();
-            var item4 = newStack.Pop();
-
-            Console.WriteLine(item1);
-            Console.WriteLine(item2);
-            Console.WriteLine(item3);
-            Console.WriteLine(item4);
-        
+            Console.WriteLine(queue.Dequeue());     
+            Console.WriteLine(queue.Peek());     
+            Console.WriteLine(queue.Dequeue());     
+            
             //RingLinkedList<int> list = new RingLinkedList<int>();
 
             //list.Add(1);
