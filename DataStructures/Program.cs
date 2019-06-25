@@ -4,6 +4,7 @@ using DataStructures.Linear.RingLinkedList;
 using System;
 using DataStructures.Linear.Queues;
 using DataStructures.Linear.Deques.LinkedDeque;
+using DataStructures.Linear.Sets;
 
 namespace DataStructures
 {
@@ -11,25 +12,20 @@ namespace DataStructures
     {
         static void Main(string[] args)
         {
-            LinkedDeque<int> deque = new LinkedDeque<int>();
+            SimpleSet<int> set1 = new SimpleSet<int>() { 1, 2, 3, 4, 5 };
+            SimpleSet<int> set2 = new SimpleSet<int>() { 4, 5, 6, 7, 8 };
 
-            deque.PushFirst(1);
-            deque.PushFirst(2);
-            deque.PushFirst(3);
-            deque.PushFirst(4);
-            deque.PushFirst(5);
-            deque.PushLast(6);
-            deque.PushLast(7);
-            deque.PushLast(8);
-            deque.PushLast(9);
-            deque.PushLast(10);
+            var subset = new SimpleSet<int>() { 1, 2, 3 };
 
-            Console.WriteLine(deque.Last);
-
-            foreach (var item in deque)
+            if (set1.Subset(subset))
+            {
+                Console.WriteLine("YRA");
+            }
+            foreach (var item in set1.SymmetricDifference(set2))
             {
                 Console.Write(item + " ");
             }
+            
             //RingLinkedList<int> list = new RingLinkedList<int>();
 
             //list.Add(1);

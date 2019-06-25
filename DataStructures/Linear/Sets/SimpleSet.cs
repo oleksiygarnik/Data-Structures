@@ -18,7 +18,7 @@ namespace DataStructures.Linear.Sets
     /// 
     /// Все значения в коллекции не могут повторяться
     /// </summary>
-    class SimpleSet<T> //: IEnumerable<T>
+    class SimpleSet<T> : IEnumerable<T>
     {
         private List<T> items = new List<T>(); // O(m*n) в худшем случае
 
@@ -125,32 +125,37 @@ namespace DataStructures.Linear.Sets
 
         public bool Subset(SimpleSet<T> set)
         {
-            return set.items.All(i => items.Contains(i));
+            //return set.items.All(i => items.Contains(i));
 
-            //foreach (var item in set.items)
-            //{
-            //    if (items.Contains(item))
-            //        continue;
-            //    else
-            //        return false;
-            //}
+            foreach (var item in set.items)
+            {
+                if (items.Contains(item))
+                    continue;
+                else
+                    return false;
+            }
 
-            //return true;
+            return true;
 
         }
 
-       
-        //IEnumerator<T> IEnumerable<T>.GetEnumerator()
-        //{
-        //    foreach (var item in items)
-        //    {
-        //        yield return item;
-        //    }
-        //}
+        public SimpleSet<T> SymmetricDifference(SimpleSet<T> set)
+        {
+            return new SimpleSet<T>(items.Except(set.items).Union(set.items.Except(items)));
+        }
 
-        //IEnumerator IEnumerable.GetEnumerator()
-        //{
-        //    return items.GetEnumerator();
-        //}
+
+        IEnumerator<T> IEnumerable<T>.GetEnumerator()
+        {
+            foreach (var item in items)
+            {
+                yield return item;
+            }
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return items.GetEnumerator();
+        }
     }
 }
