@@ -5,6 +5,7 @@ using System;
 using DataStructures.Linear.Queues;
 using DataStructures.Linear.Deques.LinkedDeque;
 using DataStructures.Linear.Sets;
+using DataStructures.NonLinear.BST;
 
 namespace DataStructures
 {
@@ -12,20 +13,38 @@ namespace DataStructures
     {
         static void Main(string[] args)
         {
-            SimpleSet<int> set1 = new SimpleSet<int>() { 1, 2, 3, 4, 5 };
-            SimpleSet<int> set2 = new SimpleSet<int>() { 4, 5, 6, 7, 8 };
+            var tree = new Tree<int>();
 
-            var subset = new SimpleSet<int>() { 1, 2, 3 };
+            tree.Add(5);
+            tree.Add(3);
+            tree.Add(7);
+            tree.Add(1);
+            tree.Add(2);
+            tree.Add(8);
+            tree.Add(6);
+            tree.Add(9);
 
-            if (set1.Subset(subset))
-            {
-                Console.WriteLine("YRA");
-            }
-            foreach (var item in set1.SymmetricDifference(set2))
+            foreach (var item in tree.PreOrder())
             {
                 Console.Write(item + " ");
             }
-            
+            Console.WriteLine();
+            Console.ReadLine();
+
+            foreach (var item in tree.PostOrder())
+            {
+                Console.Write(item + " ");
+            }
+            Console.WriteLine();
+            Console.ReadLine();
+
+            foreach (var item in tree.InOrder())
+            {
+                Console.Write(item + " ");
+            }
+            Console.WriteLine();
+            Console.ReadLine();
+
             //RingLinkedList<int> list = new RingLinkedList<int>();
 
             //list.Add(1);
